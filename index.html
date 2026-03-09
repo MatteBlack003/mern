@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synnefo Vault</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <script>
+        // Tailwind configuration to enable class-based dark mode
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Custom card styling */
+        .glass-box {
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        /* Dark Mode Card */
+        .dark .glass-box {
+            background: linear-gradient(145deg, #0f0f0f 0%, #080808 100%);
+            border: 1px solid #1a1a1a;
+        }
+        .dark .glass-box:hover {
+            border-color: #6366f1;
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.1);
+        }
+
+        /* Light Mode Card */
+        .glass-box {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+        }
+        .glass-box:hover {
+            border-color: #6366f1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="dark bg-[#050505] text-[#e5e5e5] dark:bg-[#050505] dark:text-[#e5e5e5] light:bg-slate-50 light:text-slate-900 transition-colors duration-500">
+
+    <div class="fixed top-8 right-8 z-50">
+        <button onclick="toggleTheme()" class="p-3 rounded-full border border-neutral-800 dark:border-neutral-800 light:border-slate-200 bg-neutral-900 dark:bg-neutral-900 light:bg-white transition-all active:scale-90">
+            <span id="theme-icon-dark" class="hidden dark:block text-yellow-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </span>
+            <span id="theme-icon-light" class="block dark:hidden text-indigo-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </span>
+        </button>
+    </div>
+
+    <header class="max-w-6xl mx-auto pt-32 pb-20 px-8">
+        <div class="flex items-center space-x-3 mb-4">
+            <div class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></div>
+            <span class="mono text-xs uppercase tracking-[0.4em] text-indigo-500">System Online</span>
+        </div>
+        <h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-8 text-slate-900 dark:text-white transition-colors">
+            Synnefo <span class="text-neutral-400 dark:text-neutral-600 italic">Vault</span>
+        </h1>
+        <p class="max-w-lg text-slate-500 dark:text-neutral-500 font-light text-lg leading-relaxed transition-colors">
+            Centralized document repository. Secure access to encrypted assets and technical manuals.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-8 grid grid-cols-1 md:grid-cols-12 gap-6 pb-32">
+        
+        <a href="one.pdf" target="_blank" class="md:col-span-8 glass-box rounded-3xl p-10 group">
+            <div class="flex justify-between items-start">
+                <div>
+                    <span class="mono text-indigo-600 dark:text-indigo-400 text-sm mb-2 block">01 // PRIMARY</span>
+                    <h2 class="text-3xl font-bold mb-4 text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-white transition-colors">One.pdf</h2>
+                    <p class="text-slate-500 dark:text-neutral-500 max-w-sm">Initial documentation and high-level project overview.</p>
+                </div>
+                <div class="text-slate-300 dark:text-neutral-700 group-hover:text-indigo-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                </div>
+            </div>
+        </a>
+
+        <a href="two.pdf" target="_blank" class="md:col-span-4 glass-box rounded-3xl p-10 group">
+            <span class="mono text-indigo-600 dark:text-indigo-400 text-sm mb-2 block">02 // DATA</span>
+            <h2 class="text-3xl font-bold mb-4 text-slate-900 dark:text-white transition-colors">Two.pdf</h2>
+            <p class="text-slate-500 dark:text-neutral-500 text-sm">Extended technical specifications and reference guides.</p>
+        </a>
+
+        <a href="three.pdf" target="_blank" class="md:col-span-4 glass-box rounded-3xl p-10 group">
+            <span class="mono text-indigo-600 dark:text-indigo-400 text-sm mb-2 block">03 // ASSETS</span>
+            <h2 class="text-3xl font-bold mb-4 text-slate-900 dark:text-white transition-colors">Three.pdf</h2>
+            <p class="text-slate-500 dark:text-neutral-500 text-sm">Legacy data archives and structural reports.</p>
+        </a>
+
+        <div class="md:col-span-8 glass-box rounded-3xl p-10 border-dashed bg-transparent border-slate-200 dark:border-neutral-800 flex items-center justify-center">
+            <p class="mono text-slate-400 dark:text-neutral-700 uppercase tracking-widest text-xs transition-colors">Uplink Stable</p>
+        </div>
+
+    </main>
+
+    <footer class="max-w-6xl mx-auto px-8 py-12 border-t border-slate-200 dark:border-neutral-900 flex justify-between items-center transition-colors">
+        <p class="mono text-[10px] uppercase tracking-[0.5em] text-slate-400 dark:text-neutral-600">
+            MatteBlack003
+        </p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const body = document.body;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                body.classList.remove('dark');
+                body.classList.add('bg-slate-50', 'text-slate-900');
+            } else {
+                html.classList.add('dark');
+                body.classList.add('dark');
+                body.classList.remove('bg-slate-50', 'text-slate-900');
+            }
+        }
+    </script>
+</body>
+</html>
